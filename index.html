@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kwon Min Seo | 포트폴리오</title>
+<meta name="description" content="레저해양스포츠학과 Kwon Min Seo의 개인 포트폴리오. 당구선수를 목표로 합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --felt:#0d3b2e; --felt-deep:#082a21; --felt-light:#14513f;
+  --chalk:#8ec5e8; --ball:#f4f6f3; --wood:#b9824a; --ink:#e9efe9; --muted:#9db8ac;
+  --line:rgba(233,239,233,.14);
+  --serif:'Fraunces','Noto Serif KR',Georgia,serif;
+  --sans:'Noto Sans KR',system-ui,-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--sans);background:var(--felt-deep);color:var(--ink);line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--chalk);outline-offset:3px}
+.wrap{width:min(1080px,100% - 40px);margin-inline:auto}
+section{padding:96px 0}
+h2{font-family:var(--serif);font-weight:800;font-size:clamp(2rem,5vw,3rem);line-height:1.15;margin-bottom:12px;letter-spacing:-.01em}
+.lead{color:var(--muted);max-width:56ch;margin-bottom:44px}
+
+/* Nav */
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(8,42,33,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.15rem;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{width:14px;height:14px;border-radius:50%;background:var(--ball);box-shadow:inset -2px -2px 3px rgba(0,0,0,.25)}
+nav ul{display:flex;gap:6px;list-style:none}
+nav a{display:block;padding:8px 14px;border-radius:999px;text-decoration:none;font-size:.95rem;color:var(--muted);transition:.2s}
+nav a:hover{color:var(--ink)}
+nav a.active{background:var(--ink);color:var(--felt-deep);font-weight:500}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:44px;height:44px;cursor:pointer;color:var(--ink)}
+.burger span{display:block;width:20px;height:2px;background:currentColor;margin:5px auto;transition:.25s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Hero */
+#home{min-height:100svh;display:flex;align-items:center;padding:110px 0 60px;background:radial-gradient(ellipse at 70% 40%,var(--felt-light),var(--felt-deep) 70%)}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.hero small{color:var(--chalk);font-size:1rem;display:block;margin-bottom:14px}
+h1{font-family:var(--serif);font-weight:800;font-size:clamp(3rem,9vw,5.8rem);line-height:1;letter-spacing:-.02em;margin-bottom:22px}
+.hero p{color:var(--muted);max-width:34ch;margin-bottom:32px;font-size:1.1rem}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 26px;border-radius:999px;text-decoration:none;font-weight:500;transition:transform .2s,background .2s}
+.btn.main{background:var(--chalk);color:var(--felt-deep)}
+.btn.sub{border:1px solid var(--line)}
+.btn:hover{transform:translateY(-2px)}
+.table{width:100%;height:auto;filter:drop-shadow(0 24px 40px rgba(0,0,0,.4))}
+.path{stroke-dasharray:6 7;stroke-dashoffset:400;animation:draw 2.4s .5s ease-out forwards}
+.cue{animation:roll 1.2s 2.6s cubic-bezier(.3,.7,.4,1) both}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes roll{from{transform:translateX(0)}to{transform:translateX(0)}}
+
+/* About */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.about p{color:#cfdcd4;margin-bottom:18px}
+dl{border-top:1px solid var(--line)}
+dl div{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+dt{color:var(--chalk);font-size:.95rem}
+dd{font-weight:500}
+
+/* Skills */
+#skills{background:var(--felt)}
+.skill-main{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;border:1px solid var(--line);border-radius:28px;padding:40px;background:rgba(8,42,33,.5)}
+.years{font-family:var(--serif);font-weight:800;font-size:clamp(4.5rem,14vw,8rem);line-height:.9}
+.years span{font-size:.3em;font-weight:600;margin-left:6px;color:var(--chalk)}
+.balls{display:flex;gap:12px;margin:22px 0 10px}
+.balls i{flex:1;max-width:48px;aspect-ratio:1;border-radius:50%;background:var(--ball);box-shadow:inset -5px -6px 9px rgba(0,0,0,.22);transform:scale(.4);opacity:0;transition:.5s cubic-bezier(.3,1.5,.5,1)}
+.balls.in i{transform:none;opacity:1}
+.balls i:nth-child(2){transition-delay:.12s}.balls i:nth-child(3){transition-delay:.24s}
+.balls i:nth-child(4){transition-delay:.36s}.balls i:nth-child(5){transition-delay:.48s}
+.skill-main h3{font-size:1.5rem;margin-bottom:10px}
+.skill-main p{color:#cfdcd4}
+.skill-note{margin-top:22px;color:var(--muted);font-size:.95rem}
+
+/* Projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.card{border:1px solid var(--line);border-radius:20px;padding:28px;background:rgba(255,255,255,.03)}
+.card h3{margin-bottom:8px}
+.card p{color:var(--muted)}
+.empty{border:1.5px dashed rgba(142,197,232,.5);border-radius:24px;padding:48px 28px;text-align:center;color:var(--muted)}
+.empty strong{display:block;color:var(--ink);font-size:1.2rem;margin-bottom:8px}
+
+/* Goal */
+#goal{background:linear-gradient(180deg,var(--felt) 0%,var(--felt-deep) 100%)}
+.goal{max-width:760px}
+.goal blockquote{font-family:var(--serif);font-weight:800;font-size:clamp(2rem,6vw,3.6rem);line-height:1.2;margin-bottom:28px}
+.goal p{color:#cfdcd4;max-width:58ch}
+.path-steps{margin-top:40px;display:grid;gap:0;border-left:2px solid var(--chalk);padding-left:24px}
+.path-steps div{position:relative;padding:10px 0 18px}
+.path-steps div::before{content:"";position:absolute;left:-33px;top:18px;width:14px;height:14px;border-radius:50%;background:var(--felt-deep);border:2px solid var(--chalk)}
+.path-steps div:last-child::before{background:var(--chalk)}
+.path-steps b{display:block}
+.path-steps span{color:var(--muted);font-size:.95rem}
+
+footer{padding:36px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;text-align:center}
+
+@media (max-width:820px){
+  section{padding:72px 0}
+  .burger{display:block}
+  nav{position:absolute;top:64px;left:0;right:0;background:var(--felt-deep);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .3s}
+  nav.open{max-height:360px}
+  nav ul{flex-direction:column;padding:12px 20px 20px}
+  nav a{padding:14px 16px;border-radius:12px}
+  .hero,.about,.skill-main{grid-template-columns:1fr}
+  .hero{gap:28px}
+  .table{order:-1;max-width:420px;margin-inline:auto}
+  .skill-main{padding:28px}
+  #home{align-items:flex-start;padding-top:100px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .path{animation:none;stroke-dashoffset:0}
+  .balls i{transition:none;transform:none;opacity:1}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#home"><i></i>Kwon Min Seo</a>
+    <button class="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav id="menu" aria-label="주 메뉴">
+      <ul>
+        <li><a href="#home">홈</a></li>
+        <li><a href="#about">자기소개</a></li>
+        <li><a href="#skills">역량</a></li>
+        <li><a href="#projects">프로젝트</a></li>
+        <li><a href="#goal">진로 목표</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="home">
+  <div class="wrap hero">
+    <div>
+      <small>레저해양스포츠학과</small>
+      <h1>Kwon<br>Min Seo</h1>
+      <p>당구 5년, 선수를 목표로 한 칸씩 나아가고 있습니다.</p>
+      <div class="btns">
+        <a class="btn main" href="#skills">역량 보기</a>
+        <a class="btn sub" href="#goal">진로 목표</a>
+      </div>
+    </div>
+    <svg class="table" viewBox="0 0 520 320" role="img" aria-label="당구대 위에서 흰 공이 빨간 공을 향해 가는 모습">
+      <rect x="4" y="4" width="512" height="312" rx="26" fill="#6b4524"/>
+      <rect x="4" y="4" width="512" height="312" rx="26" fill="none" stroke="#b9824a" stroke-width="3"/>
+      <rect x="30" y="30" width="460" height="260" rx="10" fill="#14704f"/>
+      <rect x="30" y="30" width="460" height="260" rx="10" fill="none" stroke="#0a4733" stroke-width="4"/>
+      <g fill="#0a2b21"><circle cx="30" cy="30" r="12"/><circle cx="260" cy="26" r="11"/><circle cx="490" cy="30" r="12"/><circle cx="30" cy="290" r="12"/><circle cx="260" cy="294" r="11"/><circle cx="490" cy="290" r="12"/></g>
+      <g fill="#e9efe9" opacity=".7"><circle cx="130" cy="14" r="2.5"/><circle cx="390" cy="14" r="2.5"/><circle cx="130" cy="306" r="2.5"/><circle cx="390" cy="306" r="2.5"/></g>
+      <path class="path" d="M120 210 L300 120 L380 215" fill="none" stroke="#8ec5e8" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="300" cy="120" r="14" fill="#d8453c"/><circle cx="296" cy="115" r="4" fill="#fff" opacity=".35"/>
+      <circle cx="380" cy="215" r="14" fill="#f2c94c"/><circle cx="376" cy="210" r="4" fill="#fff" opacity=".4"/>
+      <circle class="cue" cx="120" cy="210" r="14" fill="#f4f6f3"/><circle cx="116" cy="205" r="4" fill="#fff"/>
+      <line x1="40" y1="250" x2="104" y2="219" stroke="#e0b27a" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2>자기소개</h2>
+    <p class="lead">안녕하세요, 레저해양스포츠학과에서 공부하며 당구를 꾸준히 쳐 온 Kwon Min Seo입니다.</p>
+    <div class="about">
+      <div>
+        <p>저는 5년 동안 당구를 많이 쳐 왔습니다. 오랜 시간 큐를 잡으며 당구는 제게 가장 오래 이어온 관심사가 되었습니다.</p>
+        <p>전공인 레저해양스포츠학과에서의 공부와 함께, 당구선수라는 목표를 향해 계속 경험을 쌓아가고 있습니다.</p>
+      </div>
+      <dl>
+        <div><dt>이름</dt><dd>Kwon Min Seo</dd></div>
+        <div><dt>전공</dt><dd>레저해양스포츠학과</dd></div>
+        <div><dt>관심 분야</dt><dd>당구</dd></div>
+        <div><dt>목표</dt><dd>당구선수</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>역량</h2>
+    <p class="lead">제가 가장 자신 있게 말할 수 있는 것은 당구와 함께한 시간입니다.</p>
+    <div class="skill-main">
+      <div>
+        <div class="years">5<span>년</span></div>
+        <div class="balls" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div>
+        <h3>당구 5년</h3>
+        <p>5년 동안 당구를 많이 쳐 보았습니다. 이 꾸준한 경험이 제 가장 큰 강점입니다.</p>
+      </div>
+    </div>
+    <p class="skill-note">자격증, 대회 기록 등 추가 역량은 확인되는 대로 이곳에 더할 수 있습니다.</p>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>프로젝트</h2>
+    <p class="lead">아직 등록된 프로젝트가 없습니다. 준비되면 아래에 카드로 추가됩니다.</p>
+    <div class="projects" id="projectList"></div>
+  </div>
+</section>
+
+<section id="goal">
+  <div class="wrap goal">
+    <h2>진로 목표</h2>
+    <blockquote>당구선수가 되겠습니다.</blockquote>
+    <p>5년간 쌓은 경험을 바탕으로 당구선수라는 목표를 이루기 위해 노력하고 있습니다. 전공 공부를 병행하며 꾸준히 실력을 키워 가겠습니다.</p>
+    <div class="path-steps">
+      <div><b>지금</b><span>레저해양스포츠학과 재학, 당구 경험 5년</span></div>
+      <div><b>목표</b><span>당구선수</span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">© <span id="yr"></span> Kwon Min Seo</div></footer>
+
+<script>
+/* 프로젝트를 추가하려면 아래 배열에 { title:'제목', desc:'설명' } 형태로 넣으세요. */
+const projects = [];
+
+const list = document.getElementById('projectList');
+if (projects.length) {
+  projects.forEach(p => {
+    const c = document.createElement('article'); c.className = 'card';
+    const h = document.createElement('h3'); h.textContent = p.title;
+    const d = document.createElement('p'); d.textContent = p.desc;
+    c.append(h, d); list.append(c);
+  });
+} else {
+  list.innerHTML = '<div class="empty" style="grid-column:1/-1"><strong>프로젝트를 준비 중입니다</strong>참여한 대회나 활동이 생기면 이곳에 소개합니다.</div>';
+}
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* 모바일 메뉴 */
+const burger = document.querySelector('.burger'), menu = document.getElementById('menu');
+function setMenu(open){
+  menu.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+  burger.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+}
+burger.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+menu.addEventListener('click', e => { if (e.target.tagName === 'A') setMenu(false); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+/* 현재 섹션 표시 */
+const links = [...menu.querySelectorAll('a')];
+const secs = links.map(a => document.querySelector(a.getAttribute('href')));
+const io = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+secs.forEach(s => io.observe(s));
+
+/* 5년 공 표시 */
+const balls = document.querySelector('.balls');
+new IntersectionObserver((es, ob) => { if (es[0].isIntersecting) { balls.classList.add('in'); ob.disconnect(); } }, { threshold: .6 }).observe(balls);
+</script>
+</body>
+</html>
